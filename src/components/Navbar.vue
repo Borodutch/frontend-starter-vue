@@ -12,7 +12,7 @@
       v-menu(offset-y)
         v-btn(flat icon slot='activator' color='grey') {{currentLocale.icon}}
         v-list
-          v-list-tile(v-for='locale in locales' @click='changeLanguage(locale.code)' :key="item.code")
+          v-list-tile(v-for='locale in locales' @click='changeLanguage(locale.code)' :key="locale.code")
             v-list-tile-title {{locale.icon}}
 </template>
 
