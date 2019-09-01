@@ -1,7 +1,9 @@
 <template lang="pug">
   .v-container.pa-4
     // Main content
-    v-layout(column justify-center align-center).text-xs-center
+    v-layout(column
+    justify-center
+    align-center).text-center
       v-flex(xs12 md10)
         .headline.pb-4
           span(v-html='$t("home.info")')
@@ -24,14 +26,7 @@
         .vk-signin-button(@click.stop='vkDialog = true') {{$t('home.vk')}}
         .api-signin-button(@click.stop='keyDialog = true') {{$t('home.key')}}
 
-      v-flex(xs12 sm10 md6 lg4).pt-4
-        .headline.pb-2 {{ $t('leaderboard.title') }}
-        Leaderboard.text-xs-left
-
       v-flex.pt-4
-        div(v-if='!!stats') {{$t("stats", { ...stats, totalUSDTraded: formatNumber(stats.totalUSDTraded || 0, { sig: 2 }) })}}
-        div(v-html='$t("support")')
-        div(v-html='$t("home.opensource")')
         .caption
           router-link(to='/privacy') {{ $t('home.privacy') }}
 </template>

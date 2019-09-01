@@ -1,7 +1,7 @@
 <template lang="pug">
-  v-snackbar(app v-model='active', :timeout='4000', top, :color='color', flat)
+  v-snackbar(app v-model='active' :timeout='4000' top :color='color' flat)
     span {{text}}
-    v-btn(color='white', flat, @click='active = false') {{$t('close')}}
+    v-btn(color='white' text @click='active = false') {{$t('close')}}
 
 </template>
 

@@ -1,16 +1,17 @@
 <template lang="pug">
   nav
-    v-toolbar(flat app)
+    v-app-bar(flat app)
       // Title
       v-toolbar-title.text-uppercase.grey--text
         span {{$t('title')}}
       v-spacer
       // Dark mode
-      v-btn(flat icon color='grey' @click='toggleMode')
+      v-btn(text icon color='grey' @click='toggleMode')
         v-icon(small) brightness_2
       // Language picker
       v-menu(offset-y)
-        v-btn(flat icon slot='activator' color='grey') {{currentLocale.icon}}
+        template(v-slot:activator='{ on }')
+          v-btn(text icon v-on='on' color='grey') {{currentLocale.icon}}
         v-list
           v-list-tile(v-for='locale in locales' @click='changeLanguage(locale.code)' :key="locale.code")
             v-list-tile-title {{locale.icon}}
@@ -38,6 +39,7 @@ export default class Navbar extends Vue {
 
   toggleMode() {
     store.setDark(!store.dark());
+    (this.$vuetify.theme as any).dark = store.dark();
   }
   changeLanguage(locale: string) {
     i18n.locale = locale;
