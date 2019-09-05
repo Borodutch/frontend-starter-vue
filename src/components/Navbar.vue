@@ -11,10 +11,10 @@
       // Language picker
       v-menu(offset-y)
         template(v-slot:activator='{ on }')
-          v-btn(text icon v-on='on' color='grey') {{currentLocale.icon}}
+          v-btn(text icon color='grey' v-on='on') {{currentLocale.icon}}
         v-list
-          v-list-tile(v-for='locale in locales' @click='changeLanguage(locale.code)' :key="locale.code")
-            v-list-tile-title {{locale.icon}}
+          v-list-item(v-for='locale in locales' @click='changeLanguage(locale.code)' :key="locale.code")
+            v-list-item-title {{locale.icon}}
 </template>
 
 <script lang="ts">
