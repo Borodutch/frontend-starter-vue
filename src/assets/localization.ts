@@ -1,6 +1,6 @@
 export const messages = {
   ru: {
-    title: 'Темлейт фронтенда',
+    title: 'Темплейт фронтенда',
     notFound: 'Страница не найдена',
   },
   en: {
