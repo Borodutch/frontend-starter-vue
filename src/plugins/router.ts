@@ -1,4 +1,3 @@
-// Dependencies
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
@@ -24,7 +23,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, _, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   const user = store.state.user
 
   if (requiresAuth && !user) {

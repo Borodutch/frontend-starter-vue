@@ -31,6 +31,5 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": ["node_modules"],
-  "files": ["types/shims-tsx.d.ts", "types/shims-vue.d.ts"]
+  "exclude": ["node_modules"]
 }
