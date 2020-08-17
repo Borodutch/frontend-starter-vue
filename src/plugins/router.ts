@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import NotFound from '../views/NotFound.vue'
-import { store } from './store'
+import Home from '@/views/Home.vue'
+import NotFound from '@/views/NotFound.vue'
+import store from '@/store'
 
 Vue.use(Router)
 
@@ -24,13 +24,13 @@ const router = new Router({
 
 router.beforeEach((to, _, next) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
-  const user = store.state.user
+  const user = (store as any).state.AppStore.user
 
   if (requiresAuth && !user) {
     next('/')
   } else {
     if (to.path === '/' && user) {
-      next('/cabinet')
+      next({ name: 'cabinet', query: to.query })
     } else {
       next()
     }

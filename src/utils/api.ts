@@ -1,19 +1,22 @@
-// Dependencies
 import axios from 'axios'
-import { User } from '../models/user'
+import { User } from '@/models/User'
 
 const base = 'https://template.com'
 
 export async function loginFacebook(accessToken: string) {
-  return (await axios.post(`${base}/login/facebook`, {
-    accessToken,
-  })).data as User
+  return (
+    await axios.post(`${base}/login/facebook`, {
+      accessToken,
+    })
+  ).data as User
 }
 
 export async function loginGoogle(accessToken: string) {
-  return (await axios.post(`${base}/login/google`, {
-    accessToken,
-  })).data as User
+  return (
+    await axios.post(`${base}/login/google`, {
+      accessToken,
+    })
+  ).data as User
 }
 
 export async function loginTelegram(loginInfo: any) {
@@ -21,13 +24,15 @@ export async function loginTelegram(loginInfo: any) {
 }
 
 export async function reset(user: User) {
-  return (await axios.post(
-    `${base}/users/reset`,
-    {},
-    {
-      headers: getHeaders(user),
-    }
-  )).data
+  return (
+    await axios.post(
+      `${base}/users/reset`,
+      {},
+      {
+        headers: getHeaders(user),
+      }
+    )
+  ).data
 }
 
 function getHeaders(user: User) {
