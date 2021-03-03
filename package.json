@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/node": "^14.14.5",
     "axios": "^0.21.1",
-    "pug": "^3.0.0",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
